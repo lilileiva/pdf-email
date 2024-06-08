@@ -1,0 +1,5 @@
+# LOCAL requirements
+
+-r ./base.txt
+
+pytest==8.2.2
