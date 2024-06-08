@@ -1,5 +1,5 @@
 import os
-from PyPDF2 import PdfReader
+from pypdf import PdfReader
 from pdf_email.exceptions import EmailException, PDFException
 from pdf_email.services.smtp import SMTPService
 
