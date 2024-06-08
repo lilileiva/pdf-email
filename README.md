@@ -1,6 +1,6 @@
 # PDF Email
 
-Send emails to the given address extracting the first 30 lines of a PDF file.
+Send emails to the given address extracting text of a PDF file.
 
 Github: https://github.com/lilileiva/pdf-email
 
@@ -25,7 +25,7 @@ MAILTRAP_PORT=<Your Mailtrap port>
 MAILTRAP_PASSWORD=<Your Mailtrap password>
 MAILTRAP_USER=<Your Mailtrap username>
 MAILTRAP_SENDER=<optional>@demomailtrap.com (if default domain is set)
-PDF_LINES=30
+PDF_LINES=<Number of lines to extract from PDF>
 
 ```
 
