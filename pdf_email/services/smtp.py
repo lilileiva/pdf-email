@@ -16,9 +16,9 @@ class SMTPService:
         self.client = smtplib.SMTP(host=host, port=port, local_hostname=local_hostname)
         self.client.starttls()
         self.client.login(user=user, password=password)
-        self.send_email = sender_email
+        self.sender_email = sender_email
 
-    def send_email(self, receiver_email: str, subject: str, content: str):
+    def send_email(self, receiver_email: str, subject: str, content: str) -> None:
         message = MIMEText(content, "plain")
         message["Subject"] = subject
         message["From"] = self.sender_email
