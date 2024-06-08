@@ -11,4 +11,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "fastapi", "run", "./pdf_email/main.py", "--port", "8080"]
+CMD [ "fastapi", "run", "./pdf_email/main.py", "--port", "8080", "--reload"]
