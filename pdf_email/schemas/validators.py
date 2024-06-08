@@ -2,7 +2,7 @@ from dataclasses import dataclass
 import re
 import mimetypes
 from fastapi import File, UploadFile, Form
-from pydantic import ValidationError, model_validator
+from pydantic import model_validator
 
 from pdf_email.exceptions import EmailException, PDFException
 

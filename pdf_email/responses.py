@@ -1,6 +1,3 @@
-from pdf_email.schemas.serializers import UploadSerializer
-
-
 UPLOAD_RESPONSE = {
     200: {"success": True, "message": "The email has been successfully sent to example@example.com"},
     500: {"detail": {"message": "", "error": ""}},
