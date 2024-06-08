@@ -1,14 +1,16 @@
+from dataclasses import dataclass
 import re
 import mimetypes
-from fastapi import UploadFile, Form
-from pydantic import BaseModel, Field, model_validator
+from fastapi import File, UploadFile, Form
+from pydantic import ValidationError, model_validator
 
 from pdf_email.exceptions import EmailException, PDFException
 
 
-class UploadValidator(BaseModel):
-    email: str = Field(..., description="Email address to send mail")
-    file: UploadFile = Form(..., description="Email address to send mail")
+@dataclass
+class UploadValidator:
+    email: str = Form(..., description="Email address to send mail")
+    file: UploadFile = File(..., description="Email address to send mail")
 
     @model_validator(mode="before")
     def validate_fields(cls, values) -> dict:

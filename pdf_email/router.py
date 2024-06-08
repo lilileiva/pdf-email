@@ -1,4 +1,4 @@
-from fastapi import APIRouter, File, Form, UploadFile, Response
+from fastapi import APIRouter, Depends, File, Form, UploadFile, Response
 from pdf_email.schemas.serializers import UploadSerializer
 from pdf_email.schemas.validators import UploadValidator
 from pdf_email.responses import upload_responses
@@ -8,9 +8,8 @@ router = APIRouter()
 
 
 @router.post("/upload", tags=["upload"], responses=upload_responses)
-async def upload_file(email: str = Form(...), file: UploadFile = File(...)) -> UploadSerializer:
-    body = {"email": email, "file": file}
-    validated_fields = UploadValidator(**body).model_dump()
+async def upload_file(body: UploadValidator = Depends()) -> UploadSerializer:
+    validated_fields = UploadValidator.validate_fields(body.__dict__)
     email = validated_fields["email"]
     file = validated_fields["file"]
     send_file(file, email)
