@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from pdf_email.schemas.serializers import UploadSerializer
 from pdf_email.schemas.validators import UploadValidator
-from pdf_email.responses import upload_responses, upload_description
+from pdf_email.docs import upload_responses, upload_description
 from pdf_email.utils import send_file
 
 router = APIRouter()
