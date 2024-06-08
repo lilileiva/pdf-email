@@ -25,13 +25,13 @@ class UploadValidator:
         return values
 
 
-def _validate_email(email) -> bool:
+def _validate_email(email: str) -> bool:
     EMAIL_REGEX = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b"
     match = re.fullmatch(EMAIL_REGEX, email)
     return match is not None
 
 
-def _validate_file(file) -> bool:
+def _validate_file(file: UploadFile) -> bool:
     EXTENSIONS = [".pdf"]
     mimetype = mimetypes.guess_extension(file.content_type)
     return mimetype in EXTENSIONS

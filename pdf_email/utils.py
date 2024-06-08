@@ -1,10 +1,11 @@
 import os
+from fastapi import UploadFile
 from pypdf import PdfReader
 from pdf_email.exceptions import EmailException, PDFException
 from pdf_email.services.smtp import SMTPService
 
 
-def send_file(file, email: str) -> None:
+def send_file(file: UploadFile, email: str) -> None:
     text = read_pdf(file)
     try:
         service = SMTPService()
@@ -13,7 +14,7 @@ def send_file(file, email: str) -> None:
         raise EmailException(e)
 
 
-def read_pdf(file) -> str:
+def read_pdf(file: UploadFile) -> str:
     try:
         tmp_file = f"/tmp/{file.filename}"
         with open(tmp_file, "wb") as f:
