@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .router import router
+from pdf_email.router import router
 
 
 app = FastAPI()
